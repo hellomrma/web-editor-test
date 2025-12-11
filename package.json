@@ -1,5 +1,5 @@
 {
-  "name": "tiptap-custom",
+  "name": "rich-editor-playground",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ckeditor/ckeditor5-react": "^11.0.0",
     "@tiptap/extension-character-count": "^3.13.0",
     "@tiptap/extension-color": "^3.13.0",
     "@tiptap/extension-dropcursor": "^3.13.0",
@@ -39,6 +40,7 @@
     "lucide-react": "^0.559.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-router-dom": "^7.10.1",
     "tiptap": "^1.32.2"
   },
   "devDependencies": {

@@ -772,14 +772,15 @@ function TipTapTest() {
       )}
 
       <div className="editor-footer">
-        <div className="character-count">
-          {editor.storage.characterCount.characters()} 글자 / {editor.storage.characterCount.words()} 단어
+        <div className="editor-footer-content">
+          <div className="character-count">
+            <span className="count-number">{editor.storage.characterCount.characters()}</span>
+            <span className="count-label">글자</span>
+            <span style={{ margin: '0 0.5rem', color: 'var(--text-tertiary)' }}>/</span>
+            <span className="count-number">{editor.storage.characterCount.words()}</span>
+            <span className="count-label">단어</span>
+          </div>
         </div>
-      </div>
-
-      <div className="editor-output">
-        <h3>출력 데이터:</h3>
-        <pre>{editorData}</pre>
       </div>
     </div>
   )
