@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { CKEditor, useCKEditorCloud } from '@ckeditor/ckeditor5-react'
+import SEO from './SEO'
 
 // Rich 버전용 프리미엄 라이선스 키
 const LICENSE_KEY_RICH = import.meta.env.VITE_CKEDITOR_LICENSE_KEY_RICH || ''
@@ -490,41 +491,51 @@ function CKEditorRich() {
   }
 
   return (
-    <div className="editor-container">
-      <div className="ckeditor-wrapper">
-        <div 
-          ref={editorContainerRef}
-          className="ckeditor5-container"
-        >
-          <CKEditor
-            editor={ClassicEditor}
-            data={editorData}
-            config={editorConfig}
-            onReady={handleReady}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-
-      <div className="editor-footer">
-        <div className="editor-footer-content">
-          <div className="character-count">
-            <span className="count-number">{editorData.replace(/<[^>]*>/g, '').length}</span>
-            <span className="count-label">글자</span>
+    <>
+      <SEO 
+        title="CKEditor Rich"
+        description="CKEditor 5 Rich는 프리미엄 기능을 포함한 고급 버전입니다. Word Import/Export, PDF Export, Format Painter, Footnotes, Templates 등 강력한 기능을 제공합니다."
+        keywords="CKEditor, CKEditor 5, CKEditor Rich, 프리미엄 에디터, Word Import, PDF Export, Format Painter, 웹 에디터, WYSIWYG, 리치 텍스트 에디터"
+        canonical="https://rich-editor-playground.com/ckeditor-rich"
+      />
+      <div className="editor-container">
+        <div className="ckeditor-wrapper">
+          <div 
+            ref={editorContainerRef}
+            className="ckeditor5-container"
+            role="textbox"
+            aria-label="CKEditor Rich 에디터"
+          >
+            <CKEditor
+              editor={ClassicEditor}
+              data={editorData}
+              config={editorConfig}
+              onReady={handleReady}
+              onChange={handleChange}
+            />
           </div>
         </div>
-      </div>
 
-      <div className="editor-output">
-        <div className="output-header">
-          <h3>출력 데이터</h3>
-          <span className="output-badge">HTML</span>
+        <div className="editor-footer">
+          <div className="editor-footer-content">
+            <div className="character-count">
+              <span className="count-number">{editorData.replace(/<[^>]*>/g, '').length}</span>
+              <span className="count-label">글자</span>
+            </div>
+          </div>
         </div>
-        <pre className="output-content">
-          {editorData}
-        </pre>
+
+        <div className="editor-output">
+          <div className="output-header">
+            <h3>출력 데이터</h3>
+            <span className="output-badge">HTML</span>
+          </div>
+          <pre className="output-content">
+            {editorData}
+          </pre>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

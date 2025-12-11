@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useEditor, EditorContent } from '@tiptap/react'
+import SEO from './SEO'
 import StarterKit from '@tiptap/starter-kit'
 import Image from '@tiptap/extension-image'
 import { Table } from '@tiptap/extension-table'
@@ -334,8 +335,15 @@ function TipTapTest() {
   }
 
   return (
-    <div className="editor-container">
-      <div className="tiptap-menu-bar">
+    <>
+      <SEO 
+        title="TipTap Editor"
+        description="TipTap은 모던하고 확장 가능한 오픈소스 리치 텍스트 에디터입니다. 테이블 편집, 이미지 삽입, 다양한 서식 옵션, 소스 모드를 지원합니다."
+        keywords="TipTap, TipTap 에디터, 오픈소스 에디터, React 에디터, WYSIWYG 에디터, 리치 텍스트 에디터, ProseMirror"
+        canonical="https://rich-editor-playground.com/tiptap"
+      />
+      <div className="editor-container">
+        <div className="tiptap-menu-bar" role="toolbar" aria-label="에디터 툴바">
         <div className="menu-group">
           <button
             onClick={() => editor.chain().focus().toggleBold().run()}
@@ -782,7 +790,7 @@ function TipTapTest() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

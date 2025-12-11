@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { CKEditor, useCKEditorCloud } from '@ckeditor/ckeditor5-react'
+import SEO from './SEO'
 
 function CKEditorBasic() {
   const [editorData, setEditorData] = useState('<p>CKEditor 5 Basic 버전 테스트를 시작하세요!</p>')
@@ -238,40 +239,50 @@ function CKEditorBasic() {
   }
 
   return (
-    <div className="editor-container">
-      <div className="ckeditor-wrapper">
+    <>
+      <SEO 
+        title="CKEditor Basic"
+        description="CKEditor 5 Basic은 GPL 라이선스로 무료로 사용할 수 있는 기본 빌드 버전입니다. 기본 편집 기능, 테이블 지원, 한국어 지원을 제공합니다."
+        keywords="CKEditor, CKEditor 5, CKEditor Basic, GPL 에디터, 무료 에디터, 웹 에디터, WYSIWYG, 리치 텍스트 에디터"
+        canonical="https://rich-editor-playground.com/ckeditor-basic"
+      />
+      <div className="editor-container">
+        <div className="ckeditor-wrapper">
           <div 
-          className="ckeditor5-container"
-        >
-          <CKEditor
-            editor={ClassicEditor}
-            data={editorData}
-            config={editorConfig}
-            onReady={handleReady}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-
-      <div className="editor-footer">
-        <div className="editor-footer-content">
-          <div className="character-count">
-            <span className="count-number">{editorData.replace(/<[^>]*>/g, '').length}</span>
-            <span className="count-label">글자</span>
+            className="ckeditor5-container"
+            role="textbox"
+            aria-label="CKEditor Basic 에디터"
+          >
+            <CKEditor
+              editor={ClassicEditor}
+              data={editorData}
+              config={editorConfig}
+              onReady={handleReady}
+              onChange={handleChange}
+            />
           </div>
         </div>
-      </div>
 
-      <div className="editor-output">
-        <div className="output-header">
-          <h3>출력 데이터</h3>
-          <span className="output-badge">HTML</span>
+        <div className="editor-footer">
+          <div className="editor-footer-content">
+            <div className="character-count">
+              <span className="count-number">{editorData.replace(/<[^>]*>/g, '').length}</span>
+              <span className="count-label">글자</span>
+            </div>
+          </div>
         </div>
-        <pre className="output-content">
-          {editorData}
-        </pre>
+
+        <div className="editor-output">
+          <div className="output-header">
+            <h3>출력 데이터</h3>
+            <span className="output-badge">HTML</span>
+          </div>
+          <pre className="output-content">
+            {editorData}
+          </pre>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -33,11 +33,11 @@ function App() {
   return (
     <div className="admin-layout">
       {/* Side Navigation */}
-      <aside className="sidebar">
+      <aside className="sidebar" aria-label="주요 네비게이션">
         <div className="sidebar-header">
           <h1>Rich Editor</h1>
         </div>
-        <nav className="sidebar-nav">
+        <nav className="sidebar-nav" aria-label="에디터 메뉴">
           <Link 
             to="/"
             className={`nav-item ${isActive('/') ? 'active' : ''}`}
@@ -70,11 +70,11 @@ function App() {
       </aside>
 
       {/* Main Content Area */}
-      <main className="main-content">
-        <div className="content-header">
+      <main className="main-content" role="main">
+        <header className="content-header">
           <h2>{getEditorTitle()}</h2>
-        </div>
-        <div className="content-body">
+        </header>
+        <div className="content-body" role="region" aria-label="에디터 콘텐츠">
           <Suspense fallback={<div style={{ padding: '20px', textAlign: 'center' }}>에디터를 로드하는 중...</div>}>
             <Routes>
               <Route path="/" element={<Home />} />
